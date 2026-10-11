@@ -6,7 +6,7 @@
   var GENRES = {
     "all": "အားလုံး", "comedy": "ဟာသ", "horror": "ထိတ်လန့်", "thriller": "သည်းထိတ်",
     "sci-fi": "သိပ္ပံ", "noir": "နိုအာ", "mystery": "လျှို့ဝှက်", "drama": "ဒရာမာ",
-    "romance": "အချစ်", "action": "အက်ရှင်", "documentary": "မှတ်တမ်း"
+    "romance": "အချစ်", "action": "အက်ရှင်", "documentary": "မှတ်တမ်း", "series": "ဇာတ်လမ်းတွဲ"
   };
 
   function embedUrl(m){
