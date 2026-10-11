@@ -1,0 +1,34 @@
+{
+  "verified": [
+    {"title": "The General", "year": 1926, "genre": "comedy", "identifier": "The_General_Buster_Keaton", "thumb": "https://archive.org/services/img/The_General_Buster_Keaton"},
+    {"title": "Nosferatu", "year": 1922, "genre": "horror", "identifier": "Nosferatu_most_complete_version_93_mins.", "thumb": "https://archive.org/services/img/Nosferatu_most_complete_version_93_mins."},
+    {"title": "Metropolis", "year": 1927, "genre": "sci-fi", "identifier": "metropolis-1927-bdrip-1080p-x-265-dts-hd-ma-5.1-d-0ct-0r-lew-sev", "thumb": "https://archive.org/services/img/metropolis-1927-bdrip-1080p-x-265-dts-hd-ma-5.1-d-0ct-0r-lew-sev", "picked_result": 1, "note": "Top result of first search was 'The Giant of Metropolis' (1961) — a different film. Re-ran with year:1927 filter; this is the 1927 Fritz Lang film."},
+    {"title": "Night of the Living Dead", "year": 1968, "genre": "horror", "identifier": "Night.Of.The.Living.Dead_1080p", "thumb": "https://archive.org/services/img/Night.Of.The.Living.Dead_1080p"},
+    {"title": "The 39 Steps", "year": 1935, "genre": "thriller", "identifier": "the-39-steps-colorized-movie-720p-hd", "thumb": "https://archive.org/services/img/the-39-steps-colorized-movie-720p-hd", "picked_result": 2, "note": "Top result (The39Steps_1935) had no playable video file; result 2 is the 1935 Hitchcock film, colorized HD copy."},
+    {"title": "His Girl Friday", "year": 1940, "genre": "comedy", "identifier": "his_girl_friday", "thumb": "https://archive.org/services/img/his_girl_friday"},
+    {"title": "Sherlock Holmes", "year": 1922, "genre": "mystery", "identifier": "silent-sherlock-holmes", "thumb": "https://archive.org/services/img/silent-sherlock-holmes", "picked_result": 1, "note": "Top result of first search was 'Sherlock Holmes and the Secret Weapon' (1943) — a different film. Re-ran with year:1922; this is the 1922 John Barrymore silent film."},
+    {"title": "Plan 9 from Outer Space", "year": 1959, "genre": "sci-fi", "identifier": "plan.-9.-from.-outer.-space.-1957", "thumb": "https://archive.org/services/img/plan.-9.-from.-outer.-space.-1957"},
+    {"title": "House on Haunted Hill", "year": 1959, "genre": "horror", "identifier": "house_on_haunted_hill_ipod", "thumb": "https://archive.org/services/img/house_on_haunted_hill_ipod"},
+    {"title": "D.O.A.", "year": 1949, "genre": "noir", "identifier": "doa-1949", "thumb": "https://archive.org/services/img/doa-1949", "picked_result": 1, "note": "Top result of first search was doa_ipod (labeled 1955). Re-ran with year:1949; this is the 1949 Edmond O'Brien film (colorized copy)."},
+    {"title": "The Kid", "year": 1921, "genre": "comedy", "identifier": "Brzdac1921", "thumb": "https://archive.org/services/img/Brzdac1921", "picked_result": 1, "note": "Top result of first search was 'Billy the Kid Returns' (1938) — a different film. Chaplin's 'The Kid' (1921) is found under the Polish title 'Brzdąc' (Brzdac1921); full film, playable mp4+ogv."},
+    {"title": "Sherlock Jr.", "year": 1924, "genre": "comedy", "identifier": "MyMovie_20190318", "thumb": "https://archive.org/services/img/MyMovie_20190318"},
+    {"title": "Steamboat Bill Jr.", "year": 1928, "genre": "comedy", "identifier": "steamboat_bill_ipod", "thumb": "https://archive.org/services/img/steamboat_bill_ipod"},
+    {"title": "The Navigator", "year": 1924, "genre": "comedy", "identifier": "mymovie_202004", "thumb": "https://archive.org/services/img/mymovie_202004"},
+    {"title": "Charade", "year": 1963, "genre": "thriller", "identifier": "charade-1963-cary-grant-audrey-hepburn-comedy-mystery-romance-thriller-full-movie", "thumb": "https://archive.org/services/img/charade-1963-cary-grant-audrey-hepburn-comedy-mystery-romance-thriller-full-movie", "picked_result": 1, "note": "Top result of first search was 'Charade_1953' — a 1953 British anthology by Roy Kellino, different film. This is the 1963 Cary Grant / Audrey Hepburn film (playable mp4 confirmed)."},
+    {"title": "The Stranger", "year": 1946, "genre": "noir", "identifier": "TheStranger_0", "thumb": "https://archive.org/services/img/TheStranger_0"},
+    {"title": "Carnival of Souls", "year": 1962, "genre": "horror", "identifier": "CarnivalofSouls", "thumb": "https://archive.org/services/img/CarnivalofSouls"},
+    {"title": "The Last Man on Earth", "year": 1964, "genre": "sci-fi", "identifier": "last-man-on-earth-4-k", "thumb": "https://archive.org/services/img/last-man-on-earth-4-k"},
+    {"title": "The Little Shop of Horrors", "year": 1960, "genre": "comedy", "identifier": "Little_ShopOf_Horrors.avi", "thumb": "https://archive.org/services/img/Little_ShopOf_Horrors.avi"},
+    {"title": "White Zombie", "year": 1932, "genre": "horror", "identifier": "white_zombie", "thumb": "https://archive.org/services/img/white_zombie"},
+    {"title": "Reefer Madness", "year": 1936, "genre": "drama", "identifier": "reefer_madness1938", "thumb": "https://archive.org/services/img/reefer_madness1938"},
+    {"title": "The Phantom of the Opera", "year": 1925, "genre": "horror", "identifier": "ThePhantomoftheOpera", "thumb": "https://archive.org/services/img/ThePhantomoftheOpera"},
+    {"title": "The Cabinet of Dr. Caligari", "year": 1920, "genre": "horror", "identifier": "DasKabinettdesDoktorCaligariTheCabinetofDrCaligari", "thumb": "https://archive.org/services/img/DasKabinettdesDoktorCaligariTheCabinetofDrCaligari"},
+    {"title": "Man with a Movie Camera", "year": 1929, "genre": "documentary", "identifier": "ChelovekskinoapparatomManWithAMovieCamera", "thumb": "https://archive.org/services/img/ChelovekskinoapparatomManWithAMovieCamera"},
+    {"title": "The Terror", "year": 1963, "genre": "horror", "identifier": "TheTerror", "thumb": "https://archive.org/services/img/TheTerror"},
+    {"title": "Haxan", "year": 1922, "genre": "horror", "identifier": "Haxan_tinted_and_subtitled", "thumb": "https://archive.org/services/img/Haxan_tinted_and_subtitled"}
+  ],
+  "failed": [
+    {"title": "The Gold Rush", "reason": "No playable archive.org item found for Chaplin's 1925 film after multiple queries (with/without collection:feature_films, Chaplin creator filter). Chaplin features appear removed from IA, likely copyright enforcement by the Chaplin estate."},
+    {"title": "A Woman of Paris", "reason": "No archive.org item found for Chaplin's 1923 film after multiple queries. Same likely copyright-enforcement absence as other Chaplin features."}
+  ]
+}
