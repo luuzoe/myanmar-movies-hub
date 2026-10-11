@@ -12,6 +12,7 @@
   function embedUrl(m){
     if (m.source === "archive") return "https://archive.org/embed/" + encodeURIComponent(m.ref);
     if (m.source === "youtube") return "https://www.youtube.com/embed/" + encodeURIComponent(m.ref);
+    if (m.source === "ytplaylist") return "https://www.youtube.com/embed/videoseries?list=" + encodeURIComponent(m.ref);
     return "";
   }
 
@@ -104,7 +105,7 @@
     document.getElementById("modalBackdrop").onclick = closeModal;
     document.addEventListener("keydown", function(e){ if (e.key === "Escape") closeModal(); });
 
-    fetch("movies.json?v=1").then(function(r){ return r.json(); }).then(function(d){
+    fetch("movies.json?v=2").then(function(r){ return r.json(); }).then(function(d){
       state.data = d.movies || [];
       render();
     }).catch(function(){
