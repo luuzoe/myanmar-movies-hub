@@ -155,6 +155,16 @@
     document.getElementById("search").addEventListener("input", function(e){
       state.q = e.target.value; render();
     });
+    // Brand tap → back to main menu (home)
+    document.querySelector(".brand").onclick = function(){
+      state.tab = "myanmar"; state.genre = "all"; state.q = "";
+      document.getElementById("search").value = "";
+      document.querySelectorAll(".tab").forEach(function(x){
+        x.classList.toggle("active", x.getAttribute("data-tab") === "myanmar");
+      });
+      render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
     document.getElementById("modalClose").onclick = closeModal;
     document.getElementById("modalBackdrop").onclick = closeModal;
     document.addEventListener("keydown", function(e){ if (e.key === "Escape") closeModal(); });
