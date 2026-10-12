@@ -47,10 +47,9 @@
     var items = filtered();
     document.getElementById("empty").hidden = items.length > 0;
     grid.innerHTML = "";
-    grid.className = state.tab === "world" ? "grid-list" : "grid-posters";
+    grid.className = "grid-posters";
     items.forEach(function(m, i){
-      if (state.tab === "world") { grid.appendChild(blogCard(m)); }
-      else { grid.appendChild(posterCard(m)); }
+      grid.appendChild(posterCard(m));
     });
   }
 
@@ -68,9 +67,14 @@
     var card = document.createElement("div");
     card.className = "pcard";
     card.appendChild(posterImg(m));
+    if (m.rating) {
+      var rb = document.createElement("span"); rb.className = "prate";
+      rb.textContent = "⭐ " + m.rating;
+      card.appendChild(rb);
+    }
     var ov = document.createElement("div"); ov.className = "ov";
     var t = document.createElement("div"); t.className = "pt";
-    t.textContent = m.title_my || m.title;
+    t.textContent = (m.title_my || m.title) + (m.year ? " (" + m.year + ")" : "");
     var b = document.createElement("span"); b.className = "wb";
     b.textContent = "▶ ဇာတ်ကားကြည့်ရန်";
     ov.appendChild(t); ov.appendChild(b);
