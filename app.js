@@ -1,7 +1,8 @@
 /* Myanmar Movies Hub — catalog renderer */
 (function(){
   "use strict";
-  var state = { data: [], tab: "myanmar", genre: "all", q: "" };
+  var state = { data: [], tab: "myanmar", genre: "all", q: "", limit: 60 };
+  var PAGE = 60;
 
   var GENRES = {
     "all": "အားလုံး", "comedy": "ဟာသ", "horror": "ထိတ်လန့်", "thriller": "သည်းထိတ်",
@@ -36,7 +37,7 @@
       var b = document.createElement("button");
       b.className = "chip" + (state.genre === g ? " active" : "");
       b.textContent = GENRES[g] || g;
-      b.onclick = function(){ state.genre = g; render(); };
+      b.onclick = function(){ state.genre = g; state.limit = PAGE; render(); };
       box.appendChild(b);
     });
   }
@@ -48,9 +49,19 @@
     document.getElementById("empty").hidden = items.length > 0;
     grid.innerHTML = "";
     grid.className = "grid-posters";
-    items.forEach(function(m, i){
-      grid.appendChild(posterCard(m));
-    });
+    var shown = items.slice(0, state.limit);
+    shown.forEach(function(m){ grid.appendChild(posterCard(m)); });
+    // Load-more button
+    var old = document.getElementById("moreBtn");
+    if (old) old.remove();
+    if (items.length > shown.length) {
+      var btn = document.createElement("button");
+      btn.id = "moreBtn";
+      btn.className = "more-btn";
+      btn.textContent = "နောက်ထပ် " + (items.length - shown.length) + " ကား ကြည့်ရန် ⬇";
+      btn.onclick = function(){ state.limit += PAGE; render(); };
+      grid.parentNode.appendChild(btn);
+    }
   }
 
   function posterImg(m, cls){
@@ -148,16 +159,16 @@
         document.querySelectorAll(".tab").forEach(function(x){ x.classList.remove("active"); });
         t.classList.add("active");
         state.tab = t.getAttribute("data-tab");
-        state.genre = "all";
+        state.genre = "all"; state.limit = PAGE;
         render();
       };
     });
     document.getElementById("search").addEventListener("input", function(e){
-      state.q = e.target.value; render();
+      state.q = e.target.value; state.limit = PAGE; render();
     });
     // Brand tap → back to main menu (home)
     document.querySelector(".brand").onclick = function(){
-      state.tab = "myanmar"; state.genre = "all"; state.q = "";
+      state.tab = "myanmar"; state.genre = "all"; state.q = ""; state.limit = PAGE;
       document.getElementById("search").value = "";
       document.querySelectorAll(".tab").forEach(function(x){
         x.classList.toggle("active", x.getAttribute("data-tab") === "myanmar");
