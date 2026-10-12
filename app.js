@@ -51,16 +51,26 @@
       var card = document.createElement("div");
       card.className = "card";
       var img = document.createElement("img");
+      img.className = "p";
       img.loading = "lazy";
       img.src = m.poster;
       img.alt = m.title;
       img.onerror = function(){ this.src = "data:image/svg+xml," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="450"><rect width="300" height="450" fill="#1b1b28"/><text x="150" y="230" font-size="60" text-anchor="middle" fill="#555">🎬</text></svg>'); };
       var info = document.createElement("div");
       info.className = "info";
-      var t = document.createElement("div"); t.className = "t"; t.textContent = m.title_my || m.title;
-      var y = document.createElement("div"); y.className = "y"; y.textContent = m.year || "";
-      var g = document.createElement("span"); g.className = "g"; g.textContent = GENRES[m.genre] || m.genre;
-      info.appendChild(t); info.appendChild(y); info.appendChild(g);
+      var t = document.createElement("div"); t.className = "t";
+      t.textContent = (m.title_my || m.title) + (m.year ? " (" + m.year + ")" : "");
+      var meta = document.createElement("div"); meta.className = "meta";
+      if (m.rating) {
+        var r = document.createElement("span"); r.className = "rate";
+        r.textContent = "⭐ " + m.rating + "/10  ";
+        meta.appendChild(r);
+      }
+      meta.appendChild(document.createTextNode(GENRES[m.genre] || m.genre));
+      var g = document.createElement("span"); g.className = "g"; g.textContent = m.tab === "world" ? "🌍 နိုင်ငံတကာ" : (m.tab === "series" ? "📺 ဇာတ်လမ်းတွဲ" : "🇲🇲 မြန်မာ");
+      meta.appendChild(g);
+      var d = document.createElement("div"); d.className = "d"; d.textContent = m.desc || "";
+      info.appendChild(t); info.appendChild(meta); info.appendChild(d);
       card.appendChild(img); card.appendChild(info);
       card.onclick = function(){ openModal(m); };
       grid.appendChild(card);
@@ -90,7 +100,7 @@
       player.appendChild(f);
     }
     document.getElementById("mTitle").textContent = (m.title_my ? m.title_my + " / " : "") + m.title;
-    document.getElementById("mMeta").textContent = (m.year || "") + (m.year ? " · " : "") + (GENRES[m.genre] || m.genre);
+    document.getElementById("mMeta").textContent = (m.year || "") + (m.year ? " · " : "") + (GENRES[m.genre] || m.genre) + (m.rating ? " · ⭐ " + m.rating + "/10 IMDb" : "");
     document.getElementById("mDesc").textContent = m.desc || "";
     document.getElementById("modal").hidden = false;
     document.body.style.overflow = "hidden";
@@ -119,7 +129,7 @@
     document.getElementById("modalBackdrop").onclick = closeModal;
     document.addEventListener("keydown", function(e){ if (e.key === "Escape") closeModal(); });
 
-    fetch("movies.json?v=3").then(function(r){ return r.json(); }).then(function(d){
+    fetch("movies.json?v=4").then(function(r){ return r.json(); }).then(function(d){
       state.data = d.movies || [];
       render();
     }).catch(function(){
