@@ -47,15 +47,42 @@
     var items = filtered();
     document.getElementById("empty").hidden = items.length > 0;
     grid.innerHTML = "";
+    grid.className = state.tab === "world" ? "grid-list" : "grid-posters";
     items.forEach(function(m, i){
+      if (state.tab === "world") { grid.appendChild(blogCard(m)); }
+      else { grid.appendChild(posterCard(m)); }
+    });
+  }
+
+  function posterImg(m, cls){
+    var img = document.createElement("img");
+    img.className = cls || "";
+    img.loading = "lazy";
+    img.src = m.poster;
+    img.alt = m.title;
+    img.onerror = function(){ this.src = "data:image/svg+xml," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="450"><rect width="300" height="450" fill="#1b1b28"/><text x="150" y="230" font-size="60" text-anchor="middle" fill="#555">🎬</text></svg>'); };
+    return img;
+  }
+
+  function posterCard(m){
+    var card = document.createElement("div");
+    card.className = "pcard";
+    card.appendChild(posterImg(m));
+    var ov = document.createElement("div"); ov.className = "ov";
+    var t = document.createElement("div"); t.className = "pt";
+    t.textContent = m.title_my || m.title;
+    var b = document.createElement("span"); b.className = "wb";
+    b.textContent = "▶ ဇာတ်ကားကြည့်ရန်";
+    ov.appendChild(t); ov.appendChild(b);
+    card.appendChild(ov);
+    card.onclick = function(){ openModal(m); };
+    return card;
+  }
+
+  function blogCard(m){
       var card = document.createElement("div");
       card.className = "card";
-      var img = document.createElement("img");
-      img.className = "p";
-      img.loading = "lazy";
-      img.src = m.poster;
-      img.alt = m.title;
-      img.onerror = function(){ this.src = "data:image/svg+xml," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="450"><rect width="300" height="450" fill="#1b1b28"/><text x="150" y="230" font-size="60" text-anchor="middle" fill="#555">🎬</text></svg>'); };
+      var img = posterImg(m, "p");
       var info = document.createElement("div");
       info.className = "info";
       var t = document.createElement("div"); t.className = "t";
@@ -73,8 +100,7 @@
       info.appendChild(t); info.appendChild(meta); info.appendChild(d);
       card.appendChild(img); card.appendChild(info);
       card.onclick = function(){ openModal(m); };
-      grid.appendChild(card);
-    });
+      return card;
   }
 
   function openModal(m){
