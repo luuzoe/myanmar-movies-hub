@@ -30,7 +30,7 @@ Dear Mahar team,
 My name is Zaw, and I run Myanmar Movies Hub (https://luuzoe.github.io/myanmar-movies-hub/),
 a Burmese-language film discovery website for Myanmar audiences.
 
-Our catalog currently features 11 of your officially published full films, embedded directly
+Our catalog currently features nearly 6,900 of your officially published YouTube uploads, embedded directly
 from Mahar's official YouTube channel with full credit and links back to your channel.
 We do not download, re-upload, or alter your content in any way.
 
