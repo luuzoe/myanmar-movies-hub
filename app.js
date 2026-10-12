@@ -11,8 +11,8 @@
 
   function embedUrl(m){
     if (m.source === "archive") return "https://archive.org/embed/" + encodeURIComponent(m.ref);
-    if (m.source === "youtube") return "https://www.youtube.com/embed/" + encodeURIComponent(m.ref);
-    if (m.source === "ytplaylist") return "https://www.youtube.com/embed/videoseries?list=" + encodeURIComponent(m.ref);
+    if (m.source === "youtube") return "https://www.youtube.com/embed/" + encodeURIComponent(m.ref) + "?rel=0&modestbranding=1";
+    if (m.source === "ytplaylist") return "https://www.youtube.com/embed/videoseries?list=" + encodeURIComponent(m.ref) + "&rel=0&modestbranding=1";
     return "";
   }
 
@@ -70,11 +70,25 @@
   function openModal(m){
     var player = document.getElementById("player");
     player.innerHTML = "";
-    var f = document.createElement("iframe");
-    f.src = embedUrl(m);
-    f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-    f.allowFullscreen = true;
-    player.appendChild(f);
+    if (m.source === "archive" && m.file) {
+      // Direct native playback — no YouTube, no iframe branding at all.
+      var v = document.createElement("video");
+      v.controls = true;
+      v.playsInline = true;
+      v.preload = "metadata";
+      v.style.width = "100%";
+      var s = document.createElement("source");
+      s.src = m.file;
+      s.type = "video/mp4";
+      v.appendChild(s);
+      player.appendChild(v);
+    } else {
+      var f = document.createElement("iframe");
+      f.src = embedUrl(m);
+      f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      f.allowFullscreen = true;
+      player.appendChild(f);
+    }
     document.getElementById("mTitle").textContent = (m.title_my ? m.title_my + " / " : "") + m.title;
     document.getElementById("mMeta").textContent = (m.year || "") + (m.year ? " · " : "") + (GENRES[m.genre] || m.genre);
     document.getElementById("mDesc").textContent = m.desc || "";
@@ -105,7 +119,7 @@
     document.getElementById("modalBackdrop").onclick = closeModal;
     document.addEventListener("keydown", function(e){ if (e.key === "Escape") closeModal(); });
 
-    fetch("movies.json?v=2").then(function(r){ return r.json(); }).then(function(d){
+    fetch("movies.json?v=3").then(function(r){ return r.json(); }).then(function(d){
       state.data = d.movies || [];
       render();
     }).catch(function(){
