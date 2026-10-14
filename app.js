@@ -180,7 +180,7 @@
     document.getElementById("modalBackdrop").onclick = closeModal;
     document.addEventListener("keydown", function(e){ if (e.key === "Escape") closeModal(); });
 
-    fetch("movies.json?v=7").then(function(r){ return r.json(); }).then(function(d){
+    fetch("movies.json?v=8").then(function(r){ return r.json(); }).then(function(d){
       state.data = d.movies || [];
       render();
     }).catch(function(){
