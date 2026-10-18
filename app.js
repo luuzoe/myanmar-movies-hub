@@ -1,7 +1,7 @@
 /* Myanmar Movies Hub — catalog renderer */
 (function(){
   "use strict";
-  var state = { data: [], tab: "myanmar", genre: "all", q: "", limit: 60 };
+  var state = { data: [], tab: "series", genre: "all", q: "", limit: 60 };
   var PAGE = 60;
 
   var GENRES = {
@@ -168,10 +168,10 @@
     });
     // Brand tap → back to main menu (home)
     document.querySelector(".brand").onclick = function(){
-      state.tab = "myanmar"; state.genre = "all"; state.q = ""; state.limit = PAGE;
+      state.tab = "series"; state.genre = "all"; state.q = ""; state.limit = PAGE;
       document.getElementById("search").value = "";
       document.querySelectorAll(".tab").forEach(function(x){
-        x.classList.toggle("active", x.getAttribute("data-tab") === "myanmar");
+        x.classList.toggle("active", x.getAttribute("data-tab") === "series");
       });
       render();
       window.scrollTo({ top: 0, behavior: "smooth" });
